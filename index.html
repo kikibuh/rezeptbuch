@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Book</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <img src="images/letscook.png" alt="Let's Cook" />
+      <span class="header-text">...and add some Recipes</span>
+    </header>
+
+    <main>
+      <div class="masterchef-container">
+        <h1>
+          <img src="images/masterchef.png" alt="masterchef" />
+          random [div] do nothing
+        </h1>
+      </div>
+
+      <section id="recipe-form">
+        <form id="recipe-form" onsubmit="return validateForm()">
+          <input type="hidden" id="recipe-id" />
+
+          <label for="recipe-name"> How do we call it ? </label>
+          <input type="text" id="recipe-name" required />
+
+          <label for="recipe-category"> Choose Category:</label>
+          <select id="recipe-category" required>
+            <option value="">Select a category</option>
+            <option value="appetizers">Appetizers</option>
+            <option value="main-courses">Main Courses</option>
+            <option value="desserts">Desserts</option>
+            <option value="soups">Soups</option>
+            <option value="salads">Salads</option>
+            <option value="drinks">Drinks</option>
+          </select>
+
+          <label for="recipe-ingredients">
+            What's inside ? (I don't tell anyone)
+          </label>
+          <textarea id="recipe-ingredients" required></textarea>
+
+          <label for="recipe-instructions"> How to make it ? </label>
+          <textarea id="recipe-instructions" required></textarea>
+
+          <button type="submit">Add/Edit Recipe</button>
+        </form>
+      </section>
+
+      <section id="recipe-list">
+        <h2>My Recipes</h2>
+        <ul id="recipes"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
