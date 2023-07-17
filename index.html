@@ -8,6 +8,7 @@
   </head>
   <body>
     <header>
+      <!-- Header title -->
       <img src="images/letscook.png" alt="Let's Cook" />
       <span class="header-text">...and add some Recipes</span>
     </header>
@@ -15,19 +16,19 @@
     <main>
       <div class="masterchef-container">
         <h1>
+          <!-- Main section title -->
           <img src="images/masterchef.png" alt="masterchef" />
-          random [div] do nothing
+          Random [div] does nothing
         </h1>
       </div>
 
       <section id="recipe-form">
-        <form id="recipe-form" onsubmit="return validateForm()">
-          <input type="hidden" id="recipe-id" />
-
-          <label for="recipe-name"> How do we call it ? </label>
+        <form id="recipe-form">
+          <input type="hidden" id="recipe-index" />
+          <label for="recipe-name">What's the name?</label>
           <input type="text" id="recipe-name" required />
-
-          <label for="recipe-category"> Choose Category:</label>
+          <label for="recipe-category">Choose a Category:</label>
+          <!-- Dropdown for recipe category -->
           <select id="recipe-category" required>
             <option value="">Select a category</option>
             <option value="appetizers">Appetizers</option>
@@ -38,21 +39,29 @@
             <option value="drinks">Drinks</option>
           </select>
 
-          <label for="recipe-ingredients">
-            What's inside ? (I don't tell anyone)
-          </label>
+          <label for="recipe-ingredients"
+            >What's inside? (Don't tell anyone)</label
+          >
+          <!-- Textarea for ingredients list -->
           <textarea id="recipe-ingredients" required></textarea>
 
-          <label for="recipe-instructions"> How to make it ? </label>
+          <label for="recipe-instructions">How to make it?</label>
+          <!-- Textarea for preparation instructions -->
           <textarea id="recipe-instructions" required></textarea>
 
-          <button type="submit">Add/Edit Recipe</button>
+          <button type="submit">Add</button>
+          <!-- Button for adding recipes -->
         </form>
       </section>
 
       <section id="recipe-list">
-        <h2>My Recipes</h2>
-        <ul id="recipes"></ul>
+        <h2>
+          <!-- Heading for the output of the form -->
+          Your awesome
+          <img src="images/healthyfood.png" alt="masterchef" /> List
+        </h2>
+        <div id="recipes-container"></div>
+        <!-- Container for the recipes -->
       </section>
     </main>
 
