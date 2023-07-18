@@ -17,11 +17,26 @@
       <div class="masterchef-container">
         <h1>
           <!-- Main section title -->
-          <img src="images/masterchef.png" alt="masterchef" />
-          Random [div] does nothing
+          <button id="random-recipe-button" class="image-button">
+            <img src="images/masterchef.png" alt="masterchef" />
+          </button>
+          <span class="button-text">Get a Random Recipe!</span>
         </h1>
       </div>
+      <!-- POPUP  -->
+      <div id="recipe-popup" class="recipe-popup">
+        <div class="recipe-popup-content">
+          <span class="close-button">&times;</span>
+          <h3 id="popup-recipe-title"></h3>
+          <p id="popup-recipe-ingredients"></p>
+          <p id="popup-recipe-servings"></p>
+          <p id="popup-recipe-instructions"></p>
+        </div>
+      </div>
 
+      <!-- POPUP  -->
+
+      <!-- Submit form -->
       <section id="recipe-form">
         <form id="recipe-form">
           <input type="hidden" id="recipe-index" />
@@ -63,6 +78,18 @@
         <div id="recipes-container"></div>
         <!-- Container for the recipes -->
       </section>
+
+      <footer>
+        <button id="project-info-button" class="image-button">
+          <img src="images/eatmeal.png" alt="eatmealicon" />
+          <span class="button-text">Get Info!</span>
+        </button>
+
+        <div id="project-info-popup">
+          <div id="project-info-content"></div>
+          <button id="close-button">Close</button>
+        </div>
+      </footer>
     </main>
 
     <script src="script.js"></script>
