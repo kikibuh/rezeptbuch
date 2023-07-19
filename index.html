@@ -9,7 +9,7 @@
   <body>
     <header>
       <!-- Header title -->
-      <img src="images/letscook.png" alt="Let's Cook" />
+      <img id="letscookicon" src="images/letscook.png" alt="Let's Cook" />
       <span class="header-text">...and add some Recipes</span>
     </header>
 
@@ -21,6 +21,15 @@
             <img src="images/masterchef.png" alt="masterchef" />
           </button>
           <span class="button-text">Get a Random Recipe!</span>
+          <div id="recipe-popup" class="recipe-popup">
+            <div class="recipe-popup-content">
+              <span class="close-button">&times;</span>
+              <h2 id="popup-recipe-title"></h2>
+              <p id="popup-recipe-ingredients"></p>
+              <p id="popup-recipe-servings"></p>
+              <p id="popup-recipe-instructions"></p>
+            </div>
+          </div>
         </h1>
       </div>
       <!-- POPUP  -->
@@ -73,7 +82,14 @@
         <h2>
           <!-- Heading for the output of the form -->
           Your awesome
-          <img src="images/healthyfood.png" alt="masterchef" /> List
+          <img
+            src="images/healthyfood.png"
+            alt="healtyfood"
+            class="image-button"
+            id="nutritional-info-button"
+          />
+
+          List
         </h2>
         <div id="recipes-container"></div>
         <!-- Container for the recipes -->
@@ -81,13 +97,18 @@
 
       <footer>
         <button id="project-info-button" class="image-button">
-          <img src="images/eatmeal.png" alt="eatmealicon" />
-          <span class="button-text">Get Info!</span>
+          <span class="eatmeal-icon">
+            <img src="images/eatmeal.png" alt="eatmealicon" />
+          </span>
+          <span class="button-text"> Project info </span>
         </button>
 
         <div id="project-info-popup">
           <div id="project-info-content"></div>
-          <button id="close-button">Close</button>
+
+          <button id="close-button" class="custom-button">close</button>
+          <button id="back-button" class="custom-button">back</button>
+          <button id="next-button" class="custom-button">next</button>
         </div>
       </footer>
     </main>

@@ -82,18 +82,31 @@ function displayFormData(formData) {
   // Add event listener to the modify button
   modifyButton.addEventListener("click", function () {
     // Get the form inputs
-    var recipeName = document.getElementById("recipe-name").value;
-    var recipeCategory = document.getElementById("recipe-category").value;
-    var recipeIngredients = document.getElementById("recipe-ingredients").value;
-    var recipeInstructions = document.getElementById(
-      "recipe-instructions"
-    ).value;
 
-    // Update the recipe item with the new values
-    heading.textContent = recipeName;
-    categoryPara.textContent = "Category: " + recipeCategory;
-    ingredientsPara.textContent = "Ingredients: " + recipeIngredients;
-    instructionsPara.textContent = "Instructions: " + recipeInstructions;
+    // Add event listener to the modify button
+    modifyButton.addEventListener("click", function () {
+      // Get the form inputs for the updated values
+      var newRecipeName = document.getElementById("recipe-name").value;
+      var newRecipeCategory = document.getElementById("recipe-category").value;
+      var newRecipeIngredients =
+        document.getElementById("recipe-ingredients").value;
+      var newRecipeInstructions = document.getElementById(
+        "recipe-instructions"
+      ).value;
+
+      // Update the recipe item with the new values
+      formData.name = newRecipeName;
+      formData.category = newRecipeCategory;
+      formData.ingredients = newRecipeIngredients;
+      formData.instructions = newRecipeInstructions;
+
+      heading.textContent = formData.name;
+      categoryPara.textContent = "Category: " + formData.category;
+      ingredientsPara.textContent = "Ingredients: " + formData.ingredients;
+      instructionsPara.textContent = "Instructions: " + formData.instructions;
+    });
+
+    // ...
   });
 
   // Append the elements to the recipe item div
@@ -109,7 +122,6 @@ function displayFormData(formData) {
   recipeList.appendChild(recipeItem);
 }
 
-// Get the button element
 const randomRecipeButton = document.getElementById("random-recipe-button");
 
 // Get the pop-up container
@@ -123,8 +135,26 @@ randomRecipeButton.addEventListener("click", getRandomRecipe);
 
 // Function to handle the button click event
 async function getRandomRecipe() {
-  const url =
-    "https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=ice%20cream";
+  const dishes = [
+    "pizza",
+    "burger",
+    "pasta",
+    "sushi",
+    "cake",
+    "ice cream",
+    "steak",
+    "fried rice",
+    "chicken curry",
+    "tacos",
+    "pancakes",
+    "lasagna",
+  ];
+
+  // Get a random index to select a dish from the list
+  const randomIndex = Math.floor(Math.random() * dishes.length);
+  const choice = encodeURIComponent(dishes[randomIndex]);
+
+  const url = `https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=${choice}`;
   const options = {
     method: "GET",
     headers: {
@@ -157,8 +187,30 @@ async function getRandomRecipe() {
 // Close the pop-up when the close button is clicked
 closeButton.addEventListener("click", () => {
   recipePopup.style.display = "none";
-  // Or use classList.remove() if you're using the class approach
 });
+
+// Open the project info pop-up
+// Variablen zur Verfolgung der Projektbeschreibung und des aktuellen Index
+let projectDescriptions = [
+  " 1. 🦄 Das Projekt verwendet Vanilla JavaScript, um die Abhängigkeit von Frameworks oder Bibliotheken zu minimieren und die Performance zu optimieren  ",
+  " 🦄 Das Projekt ist komplett front-endbasiert, was bedeutet, dass alle Aktionen und Inhalte direkt im Browser des Benutzers stattfinden ",
+  " 🦄 Das Projekt demonstriert die Verwendung von DOM-Manipulation, Event Listenern und Fetch-API, um eine interaktive und dynamische Benutzeroberfläche zu erstellen.  ",
+  "🤌 DOM ist eine Schnittstelle, die es JavaScript ermöglicht, auf den strukturierten Inhalt einer Webseite zuzugreifen und ihn zu ändern. ",
+  " FEATURES ➡️",
+
+  "Anzeigen von Rezepten mit Name, Kategorie, Zutaten und Anweisungen 🆒",
+  "Hinzufügen, Bearbeiten und Löschen von Rezepten ohne Neuladen der Seite 😀",
+  "Zufällige Rezeptanzeige über eine externe API ⛏️",
+  " FUNKTIONEN ➡️ und TECHINFOS 👁️‍🗨️ ",
+  "🦻 Event Listener für das Formular implemintiert, um die Eingaben der Benutzer zu erfassen und zu verarbeiten.",
+  " 👨‍🚀function (displayFormData) erstellt ein neues Rezeptelement im DOM und fügt es der Rezeptliste hinzu. Dabei werden die Informationen aus dem übergebenen Formulardaten-Objekt in die entsprechenden HTML-Elemente eingefügt.",
+  " 🥷 function (getRandomRecipe) ist verantwortlich für das Abrufen eines zufälligen Rezepts von einer externen API und Anzeigen der Daten in einem Pop-up-Fenster, wenn der 'Zufälliges Rezept'-Button geklickt wird.",
+  " 👨‍🚀 Funktionen (openInfoPopup) und (closeInfoPopup) öffnen bzw. schließen das Pop-up-Fenster mit den Projektinformationen.",
+  " ich bin in der Cloud ☁️",
+  " like me ?  😎 Feed me // contact me ✉️ nick.jabs@docc.techstarter.de ",
+];
+
+let currentIndex = 0;
 
 // Open the project info pop-up
 document
@@ -170,22 +222,46 @@ document
   .getElementById("close-button")
   .addEventListener("click", closeInfoPopup);
 
+// Next button click event
+document
+  .getElementById("next-button")
+  .addEventListener("click", showNextDescription);
+
+// back button click event
+document
+  .getElementById("back-button")
+  .addEventListener("click", showPrevDescription);
+
 // Function to open the project info pop-up
 function openInfoPopup() {
-  const projectInfo = "This is my project information.";
   const popupContent = document.getElementById("project-info-content");
-
-  // Update the content of the pop-up window
-  popupContent.textContent = projectInfo;
-
-  // Open the pop-up window with a transition
+  popupContent.textContent = projectDescriptions[currentIndex]; // Set current description
   const popup = document.getElementById("project-info-popup");
   popup.classList.add("open");
 }
 
 // Function to close the project info pop-up
 function closeInfoPopup() {
-  // Close the pop-up window with a transition
   const popup = document.getElementById("project-info-popup");
   popup.classList.remove("open");
+}
+
+// Function to show the next project description
+function showNextDescription() {
+  currentIndex++;
+  if (currentIndex >= projectDescriptions.length) {
+    currentIndex = 0; // Loop back to the beginning if reached the end
+  }
+  const popupContent = document.getElementById("project-info-content");
+  popupContent.textContent = projectDescriptions[currentIndex]; // Set the next description
+}
+
+// Function to show the previous project description
+function showPrevDescription() {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = projectDescriptions.length - 1; // Loop back to the last description if reached the beginning
+  }
+  const popupContent = document.getElementById("project-info-content");
+  popupContent.textContent = projectDescriptions[currentIndex]; // Set the previous description
 }
