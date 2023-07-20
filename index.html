@@ -6,112 +6,98 @@
     <title>Recipe Book</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
     <header>
-      <!-- Header title -->
-      <img id="letscookicon" src="images/letscook.png" alt="Let's Cook" />
+      <img id="letscookicon" src="images/letscook.png" alt="Lets-Cook" />
       <span class="header-text">...and add some Recipes</span>
     </header>
 
-    <main>
-      <div class="masterchef-container">
-        <h1>
-          <!-- Main section title -->
-          <button id="random-recipe-button" class="image-button">
-            <img src="images/masterchef.png" alt="masterchef" />
-          </button>
-          <span class="button-text">Get a Random Recipe!</span>
-          <div id="recipe-popup" class="recipe-popup">
-            <div class="recipe-popup-content">
-              <span class="close-button">&times;</span>
-              <h2 id="popup-recipe-title"></h2>
-              <p id="popup-recipe-ingredients"></p>
-              <p id="popup-recipe-servings"></p>
-              <p id="popup-recipe-instructions"></p>
+    <div class="smartphone-container">
+      <main>
+        <div class="masterchef-container">
+          <h1>
+            <button id="random-recipe-button" class="image-button">
+              <img
+                src="images/masterchef.png"
+                alt="masterchef"
+                class="image-button"
+              />
+            </button>
+            <span class="button-text">Play Recipe Roulette!</span>
+            <div id="recipe-popup" class="recipe-popup">
+              <div class="recipe-popup-content">
+                <span class="close-button">&times;</span>
+                <h2 id="popup-recipe-title"></h2>
+                <p id="popup-recipe-ingredients"></p>
+                <p id="popup-recipe-servings"></p>
+                <p id="popup-recipe-instructions"></p>
+              </div>
             </div>
+          </h1>
+        </div>
+
+        <section id="recipe-form">
+          <form id="recipe-form">
+            <input type="hidden" id="recipe-index" />
+            <label for="recipe-name">What's the name?</label>
+            <input type="text" id="recipe-name" required />
+            <label for="recipe-category">Choose a Category:</label>
+            <select id="recipe-category" required>
+              <option value="">Select a category</option>
+              <option value="appetizers">Appetizers</option>
+              <option value="main-courses">Main Courses</option>
+              <option value="desserts">Desserts</option>
+              <option value="soups">Soups</option>
+              <option value="salads">Salads</option>
+              <option value="drinks">Drinks</option>
+            </select>
+
+            <label for="recipe-ingredients"
+              >What's inside? (Don't tell anyone)</label
+            >
+            <textarea id="recipe-ingredients" required></textarea>
+
+            <label for="recipe-instructions">How to make it?</label>
+            <textarea id="recipe-instructions" required></textarea>
+
+            <button type="submit">Add</button>
+          </form>
+        </section>
+
+        <section id="recipe-list">
+          <h2>
+            Your awesome
+            <img
+              src="images/healthyfood.png"
+              alt="healthy-food"
+              class="image-button"
+            />
+            List
+          </h2>
+          <div id="recipes-container"></div>
+        </section>
+
+        <footer>
+          <button id="project-info-button">
+            <span class="eatmeal-icon">
+              <img src="images/eatmeal.png" alt="eatmealicon" />
+            </span>
+            <span class="button-text"> ... and some Project infos </span>
+          </button>
+
+          <div id="project-info-popup">
+            <!-- you need me !! 🤕 -->
+
+            <div id="project-info-content"></div>
+
+            <button id="close-button" class="custom-button">close</button>
+            <button id="back-button" class="custom-button">back</button>
+            <button id="next-button" class="custom-button">next</button>
           </div>
-        </h1>
-      </div>
-      <!-- POPUP  -->
-      <div id="recipe-popup" class="recipe-popup">
-        <div class="recipe-popup-content">
-          <span class="close-button">&times;</span>
-          <h3 id="popup-recipe-title"></h3>
-          <p id="popup-recipe-ingredients"></p>
-          <p id="popup-recipe-servings"></p>
-          <p id="popup-recipe-instructions"></p>
-        </div>
-      </div>
-
-      <!-- POPUP  -->
-
-      <!-- Submit form -->
-      <section id="recipe-form">
-        <form id="recipe-form">
-          <input type="hidden" id="recipe-index" />
-          <label for="recipe-name">What's the name?</label>
-          <input type="text" id="recipe-name" required />
-          <label for="recipe-category">Choose a Category:</label>
-          <!-- Dropdown for recipe category -->
-          <select id="recipe-category" required>
-            <option value="">Select a category</option>
-            <option value="appetizers">Appetizers</option>
-            <option value="main-courses">Main Courses</option>
-            <option value="desserts">Desserts</option>
-            <option value="soups">Soups</option>
-            <option value="salads">Salads</option>
-            <option value="drinks">Drinks</option>
-          </select>
-
-          <label for="recipe-ingredients"
-            >What's inside? (Don't tell anyone)</label
-          >
-          <!-- Textarea for ingredients list -->
-          <textarea id="recipe-ingredients" required></textarea>
-
-          <label for="recipe-instructions">How to make it?</label>
-          <!-- Textarea for preparation instructions -->
-          <textarea id="recipe-instructions" required></textarea>
-
-          <button type="submit">Add</button>
-          <!-- Button for adding recipes -->
-        </form>
-      </section>
-
-      <section id="recipe-list">
-        <h2>
-          <!-- Heading for the output of the form -->
-          Your awesome
-          <img
-            src="images/healthyfood.png"
-            alt="healtyfood"
-            class="image-button"
-            id="nutritional-info-button"
-          />
-
-          List
-        </h2>
-        <div id="recipes-container"></div>
-        <!-- Container for the recipes -->
-      </section>
-
-      <footer>
-        <button id="project-info-button" class="image-button">
-          <span class="eatmeal-icon">
-            <img src="images/eatmeal.png" alt="eatmealicon" />
-          </span>
-          <span class="button-text"> Project info </span>
-        </button>
-
-        <div id="project-info-popup">
-          <div id="project-info-content"></div>
-
-          <button id="close-button" class="custom-button">close</button>
-          <button id="back-button" class="custom-button">back</button>
-          <button id="next-button" class="custom-button">next</button>
-        </div>
-      </footer>
-    </main>
+        </footer>
+      </main>
+    </div>
 
     <script src="script.js"></script>
   </body>

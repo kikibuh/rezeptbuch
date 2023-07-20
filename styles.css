@@ -4,6 +4,7 @@
   src: url("fonts/Inconsolata-Regular.ttf") format("truetype");
 }
 
+/* CSS Styles */
 body {
   font-family: "Inconsolata", monospace;
   margin: 0;
@@ -11,11 +12,35 @@ body {
   background-color: rgb(158, 161, 212);
 }
 
+.smartphone-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: #f9f9f9;
+
+  /* Add the following properties to enable scrolling */
+  height: 100vh; /* Set the container height to fit the entire viewport height */
+  overflow: auto; /* Enable scrolling when content exceeds the container height */
+}
+
+.smartphone-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: #f9f9f9;
+}
+
 header {
   background-color: #f1f7b5;
   padding: 20px;
   text-align: center;
-  width: 95%;
+  width: 60%;
   margin: 20px auto;
   box-sizing: border-box;
   border: 2px solid #000;
@@ -118,8 +143,9 @@ select {
   margin-bottom: 10px;
 }
 
+/* ADD + PROJECT INFO BUTTONS */
 button {
-  background-color: rgb(241, 247, 181);
+  background-color: #a8d1d1;
   color: black;
   padding: 10px 20px;
   border: none;
@@ -128,36 +154,28 @@ button {
   border-radius: 10px;
   size-adjust: 20px;
 }
+/* ADD + PROJECT INFO BUTTONS */
 
-/* HOVER ICONS to YELLOW   */
+/* BUTTONS DIE FUNKTIONIEREN   */
 button:hover {
-  background-color: rgb(230, 242, 97);
+  background-color: #73cece;
 }
+/* BUTTONS DIE FUNKTIONIEREN   */
 
-#recipe-list ul {
-  background-color: #a8d1d1;
-  padding: 10px;
-  margin-top: auto;
-  margin-bottom: auto;
-  text-align: center;
-  width: 5%;
-  margin: 10px auto;
-  box-sizing: border-box;
-  border: 2px solid #000;
-  border-radius: 10px;
-}
-
+/* REZEPIE ITEM CONTAINER */
 .recipe-item {
-  background-color: #f1f7b5;
+  background-color: #b5c3f7;
   padding: 20px;
   margin-top: auto;
   margin-bottom: auto;
   text-align: center;
-  width: 95%;
+  width: 75%;
   margin: 20px auto;
   box-sizing: border-box;
   border: 2px solid #000;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s, transform 0.3s; /* Add transition for both properties */
 }
 
 .recipe-item h3 {
@@ -170,6 +188,12 @@ button:hover {
   padding: 10px;
 }
 
+/* Hover effect */
+.recipe-item:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increase shadow intensity on hover */
+  transform: scale(1.05); /* Scale the container on hover */
+}
+/* REZEPIE ITEM CONTAINER */
 .star-button {
   background-color: #a8d1d1;
   color: white;
@@ -233,46 +257,6 @@ button:hover {
   border-radius: 10px;
 }
 
-/* Recipe popup */
-.recipe-popup-content img:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-}
-
-.recipe-popup {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.recipe-popup.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.recipe-popup-content {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 800px;
-  background-color: #fefefe;
-  color: black;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  font-size: 18px;
-  line-height: 1.5;
-}
-
 .close-button {
   color: #aaa;
   float: right;
@@ -310,21 +294,34 @@ button:hover {
   border-radius: 10px;
   padding: 10px;
   transition: transform 0.3s, box-shadow 0.3s;
+  width: 100px;
+  border-radius: 8px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions */
 }
 
-/* Eat Meal Icon */
+/* HOME MADE JAM PROJECT INFO Icon */
 .eatmeal-icon img {
   margin-left: 10px;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  /* (previously defined styles) */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions */
+  /* Add some shadow for a 3D effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Add a transition for the transform and box-shadow properties */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add a subtle scale effect on hover */
+.eatmeal-icon img:hover {
+  transform: scale(1.1);
+  /* Adjust the box-shadow to make the 3D effect more pronounced on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Style for the button text */
 .button-text {
-  margin-left: 10px; /* Add spacing between the icon and text */
+  /* Add spacing between the icon and text */
   font-size: 20px; /* Adjust the font size as needed */
   font-family: "Inconsolata", monospace, bold;
 }
@@ -337,16 +334,65 @@ button:hover {
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
+  transform: scale(1.05) rotate(3deg); /* Scale and rotate the image on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
 
-/* Style for the button text */
+/* DO NOT DELETE !!!! Recipe Pop-up */
+.recipe-popup {
+  display: none;
+}
+/* DO NOT DELETE !!!! Recipe Pop-up */
+.recipe-popup.show {
+  opacity: 1;
+  visibility: visible;
+  right: 0; /* Move the pop-up in from the right side */
+}
 
-/* eatmeal icon text */
+.recipe-popup-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 800px;
+  background-color: #fefefe;
+  color: black;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Add the CSS style for the custom buttons */
+.recipe-popup-content .close-button {
+  background-color: #a8d1d1;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.recipe-popup-content .close-button:hover {
+  background-color: #6e7095;
+}
+
+/* Update the hover effect for the star button */
+.recipe-popup-content .star-button:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* API RECEPIE POPUP */
 
 /* Project info pop-up */
 #project-info-popup {
   position: fixed;
-  bottom: -10px;
+  bottom: 20px;
   right: -80%;
   width: 60%;
   max-width: 400px;
@@ -357,7 +403,7 @@ button:hover {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   transition: right 0.5s;
 }
-
+/* Info Project sichtbar machen */
 #project-info-popup.open {
   right: 10%;
 }
@@ -365,20 +411,4 @@ button:hover {
 #project-info-content {
   font-size: 18px;
   line-height: 1.8;
-}
-
-/* Add the CSS style for the custom buttons */
-.custom-button {
-  background-color: #a8d1d1;
-  color: #ffffff; /* White text color */
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px; /* Updated font size */
-  font-weight: bold; /* Added font weight */
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.custom-button:hover {
-  background-color: #6e7095;
 }

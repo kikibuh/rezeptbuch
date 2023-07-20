@@ -189,79 +189,92 @@ closeButton.addEventListener("click", () => {
   recipePopup.style.display = "none";
 });
 
-// Open the project info pop-up
 // Variablen zur Verfolgung der Projektbeschreibung und des aktuellen Index
 let projectDescriptions = [
-  " 1. 🦄 Das Projekt verwendet Vanilla JavaScript, um die Abhängigkeit von Frameworks oder Bibliotheken zu minimieren und die Performance zu optimieren  ",
+  " Lets GO ! --> 🦄 Das Projekt verwendet Vanilla JavaScript, um die Abhängigkeit von Frameworks oder Bibliotheken zu minimieren und die Performance zu optimieren  ",
   " 🦄 Das Projekt ist komplett front-endbasiert, was bedeutet, dass alle Aktionen und Inhalte direkt im Browser des Benutzers stattfinden ",
   " 🦄 Das Projekt demonstriert die Verwendung von DOM-Manipulation, Event Listenern und Fetch-API, um eine interaktive und dynamische Benutzeroberfläche zu erstellen.  ",
   "🤌 DOM ist eine Schnittstelle, die es JavaScript ermöglicht, auf den strukturierten Inhalt einer Webseite zuzugreifen und ihn zu ändern. ",
-  " FEATURES ➡️",
+  " DOM Demo ! 😻 ...und weiter ",
+  " was kann die Seite ? zeige die FEATURES ➡️",
 
   "Anzeigen von Rezepten mit Name, Kategorie, Zutaten und Anweisungen 🆒",
   "Hinzufügen, Bearbeiten und Löschen von Rezepten ohne Neuladen der Seite 😀",
   "Zufällige Rezeptanzeige über eine externe API ⛏️",
   " FUNKTIONEN ➡️ und TECHINFOS 👁️‍🗨️ ",
-  "🦻 Event Listener für das Formular implemintiert, um die Eingaben der Benutzer zu erfassen und zu verarbeiten.",
+
+  "🦻 Formularübermittlung: Der Code WARTET auf Formularübermittlungen, um neue Rezepte zur Liste hinzuzufügen",
+  " warum warten ? --> Demo ! 😻 ...und weiter ",
+  "🤌 Ein Event Listener wird verwendet, um auf Benutzeraktionen oder andere Ereignisse (z. B. Mausklicks, Tastatureingaben etc.) zu reagieren. Er ermöglicht es, bestimmte Funktionen auszuführen, sobald das Ereignis eintritt ➡️",
+  " Wenn das Formular übermittelt wird, wird die eingegebene Daten in einem Objekt gespeichert und dann an die Funktion (displayFormData) übergeben, um das Rezept auf der Seite anzuzeigen.",
+
   " 👨‍🚀function (displayFormData) erstellt ein neues Rezeptelement im DOM und fügt es der Rezeptliste hinzu. Dabei werden die Informationen aus dem übergebenen Formulardaten-Objekt in die entsprechenden HTML-Elemente eingefügt.",
   " 🥷 function (getRandomRecipe) ist verantwortlich für das Abrufen eines zufälligen Rezepts von einer externen API und Anzeigen der Daten in einem Pop-up-Fenster, wenn der 'Zufälliges Rezept'-Button geklickt wird.",
+  " API Demo ! 😻 ...und weiter ",
+  " Nachdem die API-Antwort erhalten wurde, wird sie in JSON-Format konvertiert und das zufällige Rezept wird aus dem result-Array extrahiert.",
+  "Hier wird zuerst die fetch-API verwendet, um die API-Daten von der angegebenen URL abzurufen. Dann wird response.json() aufgerufen, um die empfangenen Daten in JSON-Format zu konvertieren. Das Ergebnis wird in der Variable result gespeichert, die ein Array von Rezepten enthält.",
+
   " 👨‍🚀 Funktionen (openInfoPopup) und (closeInfoPopup) öffnen bzw. schließen das Pop-up-Fenster mit den Projektinformationen.",
   " ich bin in der Cloud ☁️",
   " like me ?  😎 Feed me // contact me ✉️ nick.jabs@docc.techstarter.de ",
 ];
 
+
 let currentIndex = 0;
 
-// Open the project info pop-up
+
 document
   .getElementById("project-info-button")
-  .addEventListener("click", openInfoPopup);
+  .addEventListener("click", openInfoPopup); // verknüpft
 
-// Close the project info pop-up
+
 document
   .getElementById("close-button")
   .addEventListener("click", closeInfoPopup);
 
-// Next button click event
+
 document
   .getElementById("next-button")
   .addEventListener("click", showNextDescription);
 
-// back button click event
+
 document
   .getElementById("back-button")
   .addEventListener("click", showPrevDescription);
 
-// Function to open the project info pop-up
+
 function openInfoPopup() {
-  const popupContent = document.getElementById("project-info-content");
-  popupContent.textContent = projectDescriptions[currentIndex]; // Set current description
-  const popup = document.getElementById("project-info-popup");
+  const popupContent = document.getElementById("project-info-content"); // Inhalt des Pop-ups
+  popupContent.textContent = projectDescriptions[currentIndex];
+  const popup = document.getElementById("project-info-popup");  // das Hauptelement des Pop-ups selbst
   popup.classList.add("open");
 }
 
-// Function to close the project info pop-up
+
 function closeInfoPopup() {
   const popup = document.getElementById("project-info-popup");
   popup.classList.remove("open");
 }
 
-// Function to show the next project description
+
+
 function showNextDescription() {
   currentIndex++;
   if (currentIndex >= projectDescriptions.length) {
-    currentIndex = 0; // Loop back to the beginning if reached the end
+    currentIndex = 0; // überschreitet, wird es auf 0 zurückgesetzt, um zum Anfang des Arrays zurückzukehren.
   }
   const popupContent = document.getElementById("project-info-content");
-  popupContent.textContent = projectDescriptions[currentIndex]; // Set the next description
+  popupContent.textContent = projectDescriptions[currentIndex];
 }
 
-// Function to show the previous project description
+
 function showPrevDescription() {
   currentIndex--;
   if (currentIndex < 0) {
-    currentIndex = projectDescriptions.length - 1; // Loop back to the last description if reached the beginning
+    currentIndex = projectDescriptions.length - 1;
   }
   const popupContent = document.getElementById("project-info-content");
-  popupContent.textContent = projectDescriptions[currentIndex]; // Set the previous description
+  popupContent.textContent = projectDescriptions[currentIndex];
 }
+
+
